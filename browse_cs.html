@@ -169,6 +169,57 @@
             return "No result";
         },
     });
+    $('#table-g').bootstrapTable({
+        url: 'https://deeprdr.github.io/data/hiv/hiv_940.json',
+        contentType: 'application/x-www-form-urlencoded',
+        toolbar: '#exptoolbar',
+		toolbarAlign: 'left',
+		clickToSelect: true,
+        showExport: true,
+        exportDataType: 'selected',
+        cache: true,
+        striped: true,
+        pagination: true,
+        pageList: [20, 50, 100],
+        pageSize: 20,
+        pageNumber: 1,
+		search: true,
+        searchAlign: 'right',
+		advancedSearch: true,
+		idTable: 'advancedTable',
+        maintainMetaData: true,
+        sidePagination: 'client',
+        columns: [
+            {
+                field: 'state',
+                checkbox: true,
+                align: 'center',
+            }, {
+				field: 'id',
+                title: 'ID',
+                align: 'center',
+                sortable:true,
+            }, {
+                field: 'name',
+                title: 'Name',
+                sortable:true,
+            }, {
+                field: 'description',
+                title: 'Description',
+                sortable:true,
+            }, {
+                field: 'name',
+                title: '',
+                align: 'center',
+                formatter: function(value) {
+                        return '<a class="text-dark" href="https://deeprdr.github.io/data/hiv/' + value + '"><button type="button" class="btn btn-outline-dark">Detail</button></a>';
+                    },
+            }
+        ],
+        formatNoMatches: function(){
+            return "No result";
+        },
+    });
     $("#sel_exp").change(function () {
         $('#table-o').bootstrapTable('refreshOptions', {
             exportDataType: $(this).val()
