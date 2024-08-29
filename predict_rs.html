@@ -85,6 +85,8 @@
 <script>
     const url = new URL(window.location.href);
     const mid = url.searchParams.get('mid');
+    var pg = document.getElementById("mesh"); 
+    pg.innerHTML = mid; 
     const m_url = 'https://deeprdr.github.io/data/rs/' + mid + '.json'
     $('#table-l').bootstrapTable({
         url: m_url,
@@ -97,8 +99,8 @@
         cache: true,
         striped: true,
         pagination: true,
-        pageList: [20, 50, 100],
-        pageSize: 20,
+        pageList: [10, 20, 50],
+        pageSize: 10,
         pageNumber: 1,
 		search: true,
         searchAlign: 'right',
@@ -112,26 +114,22 @@
                 checkbox: true,
                 align: 'center',
             }, {
-				field: 'id',
-                title: 'ID',
+				field: 'rank',
+                title: 'Rank',
                 align: 'center',
                 sortable:true,
+            }, {
+                field: 'did',
+                title: 'DrngBank ID',
+                sortable:true,
+                formatter: function(value) {
+                        return '<a class="text-dark" href="https://go.drugbank.com/drugs/' + value + '">' + value + '</a>';
+                    },
             }, {
                 field: 'name',
                 title: 'Name',
                 sortable:true,
-            }, {
-                field: 'description',
-                title: 'Description',
-                sortable:true,
-            }, {
-                field: 'name',
-                title: '',
-                align: 'center',
-                formatter: function(value) {
-                        return '<a class="text-dark" href="https://deeprdr.github.io/data/hiv/' + value + '"><button type="button" class="btn btn-outline-dark">Detail</button></a>';
-                    },
-            }
+            }, 
         ],
         formatNoMatches: function(){
             return "No result";
