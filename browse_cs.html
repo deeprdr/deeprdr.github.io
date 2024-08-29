@@ -148,6 +148,9 @@
                 title: 'Orphanet ID',
                 align: 'center',
                 sortable:true,
+                formatter: function(value) {
+                        return '<a class="text-dark" href="https://www.orpha.net/en/disease/detail/' + value + '">' + value + '</a>';
+                    },
             }, {
                 field: 'name',
                 title: 'Name',
@@ -156,12 +159,15 @@
                 field: 'mid',
                 title: 'MESH ID',
                 sortable:true,
+                formatter: function(value) {
+                        return '<a class="text-dark" href="https://meshb.nlm.nih.gov/record/ui?ui=' + value + '">' + value + '</a>';
+                    },
             }, {
                 field: 'mid',
                 title: '',
                 align: 'center',
                 formatter: function(value) {
-                        return '<a class="text-dark" href="https://deeprdr.github.io/data/hiv/' + value + '"><button type="button" class="btn btn-outline-dark">Detail</button></a>';
+                        return '<a class="text-dark" href="https://deeprdr.github.io/predict_cs?mid=' + value + '"><button type="button" class="btn btn-outline-dark">Prediction result</button></a>';
                     },
             }
         ],
@@ -199,6 +205,9 @@
                 title: 'GARD ID',
                 align: 'center',
                 sortable:true,
+                formatter: function(value) {
+                        return '<a class="text-dark" href="https://rarediseases.info.nih.gov/diseases/' + value + '/index">' + value + '</a>';
+                    },
             }, {
                 field: 'name',
                 title: 'Name',
@@ -207,12 +216,15 @@
                 field: 'mid',
                 title: 'MESH ID',
                 sortable:true,
+                formatter: function(value) {
+                        return '<a class="text-dark" href="https://meshb.nlm.nih.gov/record/ui?ui=' + value + '">' + value + '</a>';
+                    },
             }, {
                 field: 'mid',
                 title: '',
                 align: 'center',
                 formatter: function(value) {
-                        return '<a class="text-dark" href="https://deeprdr.github.io/data/hiv/' + value + '"><button type="button" class="btn btn-outline-dark">Detail</button></a>';
+                        return '<a class="text-dark" href="https://deeprdr.github.io/predict_cs?mid=' + value + '"><button type="button" class="btn btn-outline-dark">Prediction result</button></a>';
                     },
             }
         ],

@@ -83,8 +83,11 @@
 <script src="https://deeprdr.github.io/js/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.min.js"></script>
 
 <script>
+    const url = new URL(window.location.href);
+    const mid = url.searchParams.get('mid');
+    const m_url = 'https://deeprdr.github.io/data/rs/' + mid + '.json'
     $('#table-l').bootstrapTable({
-        url: 'https://deeprdr.github.io/data/hiv/hiv_940.json',
+        url: m_url,
         contentType: 'application/x-www-form-urlencoded',
         toolbar: '#exptoolbar',
 		toolbarAlign: 'left',
